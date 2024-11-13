@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Movie Recommendation</title>
+    <link rel="stylesheet" href="/static/css/movie.css">
+    <link rel="icon" href="/static/images/2-1.png">
+</head>
+
+<body>
+    <div class="head">
+        <div class="logo">
+            <div class="arrow arrow-left" onclick="history.back()">&#10094;</div>
+        </div>
+        <div class="end">
+            <div class="sign">
+                <button onclick="goToWatchlist()" class="one">Watchlist</button>
+            </div>
+            <div class="log">
+                <button onclick="goToHistory()" class="two">History</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="poster">
+            <img src="data:image/jpeg;base64,{{ movie.poster }}" alt="{{ movie.title }} Poster">
+        </div>
+        <div class="details">
+            <div class="data">
+                <div class="key">
+                    <p class="keys">Title:</p>
+                </div>
+                <div class="value">
+                    <p class="values">{{ movie.title }}</p>
+                </div>
+            </div>
+            <div class="data">
+                <div class="key">
+                    <p class="keys">Genre:</p>
+                </div>
+                <div class="value">
+                    <p class="values">{{ movie.genre }}</p>
+                </div>
+            </div>
+            <div class="data">
+                <div class="key">
+                    <p class="keys">Rating:</p>
+                </div>
+                <div class="value">
+                    <p class="values">{{ movie.rating }}</p>
+                </div>
+            </div>
+            <div class="data">
+                <div class="key">
+                    <p class="keys">Director:</p>
+                </div>
+                <div class="value">
+                    <p class="values">{{ movie.director }}</p>
+                </div>
+            </div>
+            <div class="data">
+                <div class="key">
+                    <p class="keys">Actors:</p>
+                </div>
+                <div class="value">
+                    <p class="values">{{ movie.actors }}</p>
+                </div>
+            </div>
+            <div class="data">
+                <div class="key">
+                    <p class="keys">Plot:</p>
+                </div>
+                <div class="value">
+                    <p class="values">{{ movie.description }}</p>
+                </div>
+            </div>
+
+            <div class="addIcons">
+                <!-- Button to add to watchlist with movie title as parameter -->
+                <button id="icon-btn" onclick="handleClick1('{{ movie.title }}')" class="one" {% if in_watchlist %}
+                    disabled {% endif %}>
+                    <div class="addWatch">
+                        <i id="icon" class="fas {% if in_watchlist %} fa-check {% else %} fa-plus {% endif %}"></i>
+                    </div>
+                </button>
+
+                <!-- Button to mark as watched -->
+                <button onclick="handleClick2('{{ movie.title }}')" class="one" {% if in_history %} disabled {% endif
+                    %}>
+                    <div class="addhist">
+                        <p class="choosesa">
+                            {% if in_history %}
+                            already watched!
+                            {% else %}
+                            watched already?
+                            {% endif %}
+                        </p>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Redirect to watchlist
+        function goToWatchlist() {
+            window.location.href = "{{ url_for('watchlist') }}";
+        }
+
+        // Redirect to history
+        function goToHistory() {
+            window.location.href = "{{ url_for('history') }}";
+        }
+
+        // Add to watchlist function with movie title passed as a parameter
+        function AddTowatch(movie_id) {
+            window.location.href = "{{ url_for('addToWatchList', movie_id='') }}" + encodeURIComponent(movie_id);
+        }
+
+        // Mark movie as watched
+        function watched(movie_id) {
+            window.location.href = "{{ url_for('addToHistory', movie_id='') }}" + encodeURIComponent(movie_id);
+        }
+
+        function togglewatchIcon() {
+            const icon = document.getElementById("icon");
+            const button = document.getElementById("icon-btn");
+
+            // Toggle between plus and check icons
+            if (icon.classList.contains("fa-plus")) {
+                icon.classList.remove("fa-plus");
+                icon.classList.add("fa-check");
+
+                // Make the button unclickable after toggling to check
+                button.disabled = true;
+            }
+        }
+
+        function handleClick1(movie_id) {
+            AddTowatch(movie_id); // Call the additional function
+            togglewatchIcon(); // Call the icon toggle function
+        }
+
+        function handleClick2(movie_id) {
+            watched(movie_id); // Call the additional function
+            const buttonText = event.target.querySelector('.choosesa');
+            if (buttonText) {
+                buttonText.innerHTML = "already watched";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

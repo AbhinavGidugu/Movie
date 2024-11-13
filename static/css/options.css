@@ -1,0 +1,111 @@
+body{
+    background-color: black;
+
+}
+.innerSection{
+    display: flex;
+    justify-content: flex-start;
+}
+.remove{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#5E17EB;
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    margin-right: 40px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    box-shadow: none; 
+    transition: box-shadow 0.2s ease;
+}
+.remove:hover{
+    box-shadow: 0px 0px 15px 2px #5E17EB ;
+}
+#removal{
+    color: black;
+    font-size: 35px;
+    
+}
+.section{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: none; 
+    transition: box-shadow 0.1s ease;
+    border-radius: 10px;
+}
+.section:hover{
+    box-shadow: 0px 0px 15px  #5E17EB;
+}
+.stars{
+    font-size: 15px;
+}
+
+.description{
+    padding-left: 20px;
+}
+p{
+    color: white;
+    font-family: "Helvetica";
+    font-weight: bold;
+    font-size: 25px;
+    
+}
+i{
+    color: yellow;
+}
+.poster{
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+img{
+    width: 110px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.header{
+    padding-top: 3px;
+    padding-bottom: 1px;
+    background-image: linear-gradient(to right, black, #5E17EB);
+    /* background-color: #5E17EB; */
+    margin-bottom: 10px;
+    border-radius: 15px;
+    position: fixed;
+    width: 97vw;
+    box-shadow: 0px 0px 10px 10px  black;
+}
+.head{
+    color: white;
+    font-family: "Helvetica";
+    font-weight: bolder;
+    font-size: 30px;
+    padding-left: 20px;
+}
+.contents{
+    padding-top: 100px;
+}
+.nela{
+    padding-left: 30px;
+    font-size: 30px;
+    font-weight: bolder;
+}
+.MonthName{
+    background-image: linear-gradient(to right,black,#3e178a);
+    border-radius: 15px;
+    width: 130px;
+}
+.theesey {
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+}

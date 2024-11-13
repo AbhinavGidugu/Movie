@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Movie Recommendation</title>
+    <link rel="stylesheet" href="/static/css/idea.css">
+    <link rel="icon" href="/static/images/2-1.png">
+</head>
+
+<body>
+    <div class="head">
+        <div class="logo">
+            <a href="{{url_for('first')}}"><img class="Logo" src="/static/images/2-1.png"></a>
+        </div>
+        <div class="middle">
+            <div class="next">
+                <form class="search" action="/search" method="GET">
+                    <div style="position: relative;">
+                        <input type="text" class="search-bar" name="query" placeholder="What do you want to watch?"
+                            required>
+                        <button type="submit" class="glass"
+                            style="position: absolute; left: 8px; top: 50%; transform:translateY(-50%); background: none; border: none; cursor: pointer;">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="end">
+            <div class="sign">
+                <button onclick="goToWatchlist()" class="one">Watchlist</button>
+            </div>
+            <div class="log">
+                <button onclick="goToHistory()" class="two">History</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Circular Movie Poster Wheel -->
+    <div class="movie-wheel">
+        <div class="circle" id="circle">
+            {% for movie in movies %}
+            <div class="movie">
+                <a href="{{ url_for('cinema', movie_name=movie.title) }}">
+                    <img src="data:image/jpeg;base64,{{ movie.poster }}" alt="{{ movie.title }} Poster">
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="arrow arrow-left" onclick="rotateCircle(-1)">&#10094;</div>
+        <div class="arrow arrow-right" onclick="rotateCircle(1)">&#10095;</div>
+    </div>
+
+    <script>
+        let currentRotation = 0;
+        const circle = document.getElementById("circle");
+        const movies = document.querySelectorAll('.movie');
+
+        function setActiveMovie() {
+            let index = 10 - Math.round(currentRotation / 36) % 10;
+            if (index == 10) index = 0;
+            if (index < 0) index += 10;
+            if (index > 10) index %= 10;
+
+            movies.forEach((movie, i) => {
+                movie.classList.remove('active');
+                if (i === index) {
+                    movie.classList.add('active');
+                }
+            });
+        }
+
+        function rotateCircle(direction) {
+            currentRotation -= direction * 36;
+            circle.style.transform = `rotate(${currentRotation}deg)`;
+            setTimeout(setActiveMovie, 100);
+        }
+
+        function goToWatchlist() {
+            window.location.href = "{{ url_for('watchlist') }}";
+        }
+
+        function goToHistory() {
+            window.location.href = "{{ url_for('history') }}";
+        }
+        function gomovie(movie) {
+            window.location.href = "{{ url_for('cinema', movie_name='') }}" + encodeURIComponent(movie);
+        }
+
+
+
+        setActiveMovie();
+    </script>
+</body>
+
+</html>

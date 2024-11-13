@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Movie Recommendation</title>
+    <link rel="stylesheet" href="/static/css/comein.css">
+    <link rel="icon" href="/static/images/2-1.png">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        {% if error %}
+            <p class=error><strong>Error:</strong> {{ error }}
+        {% endif %}
+        <br>
+        <form action="{{ url_for('check') }}" method="post">
+            <div class="input-box">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="input-box">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+        <p class="signup-text">
+            If you haven't signed up yet, <a href="#">Sign up</a>.
+        </p>
+    </div>
+
+</body>
+</html>

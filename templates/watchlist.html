@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Movie Recommendation</title>
+    <link rel="stylesheet" href="/static/css/options.css">
+    <link rel="icon" href="/static/images/2-1.png">
+</head>
+
+<body>
+    <div class="header">
+        <p class="head">Watchlist</p>
+    </div>
+    <div class="contents">
+        {% for movie in List %}
+        <div class="section">
+            <div class="innerSection">
+                <div class="poster">
+                    <img src="data:image/jpeg;base64,{{ movie.poster_image_base64 }}" alt="{{ movie.originalTitle }} Poster">
+                </div>
+                <div class="description">
+                    <div class="Title">
+                        <a href="{{ url_for('cinema', movie_name=movie.originalTitle) }}">
+                            <p> {{movie.originalTitle}}</p>
+                        </a>
+                    </div>
+                    <div class="rating">
+                        <p class="stars">{{movie.Rating}} <i class="fas fa-star"></i></p>
+                    </div>
+                </div>
+            </div>
+            <button class="theesey" onclick="removeFromwatch('{{ movie.originalTitle }}')">
+                <div class="remove">
+                    <i id="removal" class="fa fa-remove"></i>
+                </div>
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+    <script>
+        function removeFromwatch(movie_id){
+            window.location.href = "{{ url_for('removeFromWatch', movie_id='') }}" + encodeURIComponent(movie_id);
+
+        }
+    </script>
+
+</body>
+
+</html>

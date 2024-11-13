@@ -1,0 +1,152 @@
+body{
+     background-color: black;
+}
+.keys{
+    font-family: "Helvetica";
+    color: #5E17EB;
+    font-weight: bold;
+}
+.values{
+    font-family: "Helvetica";
+    color: white;
+    font-weight: bold;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-left: 100px;
+    padding-left: 20px;
+    margin-right: 100px;
+    padding-right: 30px;
+}
+
+.data{
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 30px;
+}
+img{
+    width: 250px;
+    height: 330px ;
+    border-radius: 15px;
+    box-shadow: none; 
+    transition: box-shadow 0.3s ease;
+}
+img:hover{
+    box-shadow: 4px 4px 20px 0px  rgb(70, 70, 70);
+}
+.poster{
+    padding-right: 20px;
+    margin-bottom: 50px;
+}
+
+.value{
+    padding-left: 10px;
+}
+
+.Logo{
+    width: 50px;
+    height: 50px;
+    /* margin-top: 10px;*/
+    margin-left: 25px; 
+    margin-right: 25px;
+    /* background-color: red; */
+}
+.head{
+    display: flex;
+    justify-content: space-between;
+}
+.one{
+    background-color: transparent;
+    border: none;
+    color:#5E17EB;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top:16px;
+    margin-right: 10px;
+    font-family: "Helvetica";
+    font-weight: bolder;
+}
+.one:hover{
+    color: #ffffff;
+}
+.two{
+    background-color: #5E17EB;
+    border: 1px solid #5E17EB;
+    border-radius: 50px;
+    padding-left:30px;
+    padding-right:30px;
+    padding-top:15px;
+    padding-bottom:15px;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: "Helvetica";
+    font-weight: bolder;
+}
+.two:hover{
+    background-color:white;
+}
+
+.end {
+    display: flex;
+    justify-content: end;
+    margin-top: 5px;
+    margin-right: 10px;
+    /* background-color: rebeccapurple; */
+}
+
+.arrow {
+    bottom: 200px;
+    font-size: 40px;
+    color: #5E17EB;
+    cursor: pointer;
+}
+.arrow:hover {
+    color: rgb(212, 208, 208);
+}
+
+.arrow-left {
+    left: 30px;
+    padding-left: 15px;
+    padding-top: 5px;
+}
+
+i{
+    color:black ;
+    padding-top: 1px;
+    font-size: 25px;
+}
+.addWatch{
+    background-color: #5E17EB;
+    width: 35px;
+    height: 35px;
+    border-radius: 35px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 8px;
+    margin-left: 25px;
+}
+
+.addWatch:hover{
+    background-color: white;
+}
+
+.addhist{
+    background-color: #5E17EB;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 15px;
+}
+.addhist:hover{
+    background-color: white;
+}
+.choosesa{
+    color: black;
+    font-family: "Helvetica";
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

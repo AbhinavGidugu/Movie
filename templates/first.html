@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Movie Recommendation</title>
+    <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="icon" href="/static/images/2-1.png">
+</head>
+
+<body>
+    <div class="head">
+        <!-- <div class="logo">
+            <a href='home.html'><img class="Logo" src="/static/images/2-1.png"></a>
+        </div> -->
+        <div class="end">
+            <div class="sign">
+                <button onclick="goToWatchlist()" class="one">Watchlist</a>
+            </div>
+            <div class="log">
+                <button onclick="goToHistory()"class="two">History</a>
+            </div>
+        </div>
+        <div class="middle">
+                <div class="next">
+                    <form class="search" action="/search" method="GET">
+                        <div style="position: relative;">
+                            <input type="text" class="search-bar" name="query" placeholder="What do you want to watch?" required>
+                            <button type="submit" class="glass" style="position: absolute; left: 8px; top: 50%; transform:translateY(-50%); background: none; border: none; cursor: pointer;">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+        </div>
+        
+    </div>
+    <script>
+        function goToWatchlist(){
+            window.location.href = "{{ url_for('watchlist') }}";
+        }
+        function goToHistory(){
+            window.location.href = "{{ url_for('history') }}";
+        }
+
+    </script>
+</body>

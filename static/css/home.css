@@ -1,0 +1,126 @@
+body{
+    background-image: url('/static/images/back.png');
+    background-size: cover;  /* Scales the image to cover the entire area */
+    background-position: center;  /* Centers the image */
+    background-repeat: no-repeat;  /* Ensures the image doesn't repeat */
+    background-attachment: fixed;  
+}
+.Logo{
+    width: 50px;
+    height: 50px;
+    /* margin-top: 10px;*/
+    margin-left: 25px; 
+    margin-right: 25px;
+    /* background-color: red; */
+}
+
+.search-bar {
+    justify-content: center;
+    padding: 15px;
+    padding-left: 50px;
+    border: 1px solid #5E17EB !important;
+    border-radius: 40px;
+    width: 500px;
+    height: 30px;
+}
+
+
+input {
+    /* background-color: rgb(44, 44, 44); */
+    background: transparent;
+    outline: none;
+    color: #5E17EB;
+    font-family: "Helvetica";
+    font-size: medium;
+    font-weight: bold;
+    border: 5px;
+}
+
+input:placeholder-shown {
+    font-family: "Helvetica";
+    font-size: medium;
+    font-weight: bold;
+}
+
+.search {
+    position: relative;
+    display: inline-block;
+    display: flex;
+
+}
+
+/* .head {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    margin-top: 20px;
+} */
+
+.middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  
+    margin-top: -80px;
+}
+
+.end {
+    display: flex;
+    justify-content: end;
+    margin-top: 2px;
+    margin-right: 10px;
+    /* background-color: rebeccapurple; */
+}
+
+.icon {
+    background-color: rgb(44, 44, 44);
+    color: white;
+    border-radius: 100px;
+    padding: 12px;
+    margin-right: 20px;
+    font-size: 20px;
+    justify-content: center;
+}
+.glass {
+    padding-left: 10px;
+    color: #5E17EB;
+    font-size: 25px;
+}
+
+
+.one{
+    background-color: transparent;
+    border: none;
+    color:#5E17EB;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top:16px;
+    margin-right: 10px;
+    font-family: "Helvetica";
+    font-weight: bolder;
+}
+.one:hover{
+    color: #ffffff;
+}
+.two{
+    background-color: #5E17EB;
+    border: 1px solid #5E17EB;
+    border-radius: 50px;
+    padding-left:30px;
+    padding-right:30px;
+    padding-top:15px;
+    padding-bottom:15px;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: "Helvetica";
+    font-weight: bolder;
+}
+.two:hover{
+    background-color:white;
+}
+
+.titles{
+    color: #5E17EB;
+    font-family: Arial, Helvetica, sans-serif;
+}
